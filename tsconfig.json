@@ -18,6 +18,7 @@
       "jsx": "react",
       "noUnusedLocals": true,
       "allowUnusedLabels": true,
+      "downlevelIteration": true,
       "types": ["node", "react"]
     },
     "include": [

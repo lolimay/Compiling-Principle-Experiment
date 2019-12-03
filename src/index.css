@@ -3,13 +3,31 @@
     font-family: Monaco, Consolas;
 }
 
+@media (max-width: 1050px) {
+    .input-container, #output, #backdeop, .mark-blue {
+        width: 95%;
+    }
+}
+
+.header {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    margin-left: 10px;
+}
+
 #output {
-    height: 430px;
+    height: 520px;
     border: 1px solid rgba(217, 217, 217);
     border-radius: 4px;
     cursor: text;
     padding: 5px;
-    line-height: 0.5;
+    line-height: 1.5;
     font-weight: bold;
 }
 
@@ -29,11 +47,12 @@
     background-color: transparent;
     color: black;
     z-index: 1;
+    height: 520px;
 }
 
 #input, #backdrop {
-    line-height: 2;
-    font-size: 22px;
+    line-height: 2.5;
+    font-size: 18px;
     letter-spacing: 1px;
 }
 
@@ -45,13 +64,12 @@ textarea {
 .mark-blue {
     background-color: #c1e144;
     border-radius: 4px;
-    padding: 0; 
+    padding: 0;
 }
 
-#backdrop {
+#backdrop, #output {
     overflow: auto;
     position: absolute;
-    z-index: 2;
     overflow: auto;
     pointer-events: none;
     transition: transform 1s;
@@ -59,6 +77,21 @@ textarea {
     border-radius: 4px;
     border: 1px solid transparent;
     color: transparent;
+    height: 420px;
+}
+
+#backdrop {
+    z-index: 2;
+}
+
+#output {
+    z-index: 3;
+    color: black;
+    margin-top: 20px;
+}
+
+#backdrop::-webkit-scrollbar {
+    display: none;
 }
 
 .error {
@@ -69,7 +102,7 @@ textarea {
     color: #ffbd2d;
 }
 
-.pink {
+.pink, .red {
     color: red;
 }
 
@@ -83,5 +116,21 @@ textarea {
 
 mark {
     padding: 0;
-    background: white;
+    background: transparent;
+}
+
+#output * {
+    font-weight: bold;
+}
+
+.wavy-error {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #a50202;
+}
+
+.wavy-warning {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ffbd2d;
 }

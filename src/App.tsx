@@ -3,6 +3,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { parseSource } from './main';
 
+// tslint:disable-next-line
+import LOGO from './assets/analyzer.svg';
+
 class App extends React.Component {
     state = {
         input: null as HTMLTextAreaElement,
@@ -31,20 +34,26 @@ class App extends React.Component {
 
     render() {
         return (
-            <div id='main'>
-                <div className='input-container'>
-                    <div id='backdrop'>
-                        <div className='highlights'></div>
-                    </div>
-                    <Input.TextArea
-                        id='input'
-                        rows={20}
-                        onInput={e => this.eventHandler(e, document.querySelector('#input'), document.querySelector('#output'), document.querySelector('#backdrop'))}
-                        onScroll={e => this.eventHandler(e, document.querySelector('#input'), document.querySelector('#output'), document.querySelector('#backdrop'))}
-                    />
+            <React.Fragment>
+                <div className='header'>
+                    <img src={LOGO} alt='analyzer' />
+                    <h1>Chomsky Grammar Type Judgement</h1>
                 </div>
-                <p id='output'></p>
-            </div>
+                <div id='main'>
+                    <div className='input-container'>
+                        <div id='backdrop'>
+                            <div className='highlights'></div>
+                        </div>
+                        <Input.TextArea
+                            id='input'
+                            rows={20}
+                            onInput={e => this.eventHandler(e, document.querySelector('#input'), document.querySelector('#output'), document.querySelector('#backdrop'))}
+                            onScroll={e => this.eventHandler(e, document.querySelector('#input'), document.querySelector('#output'), document.querySelector('#backdrop'))}
+                        />
+                        <p id='output'></p>
+                    </div>
+                </div>
+            </React.Fragment>
         );
     }
 }
