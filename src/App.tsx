@@ -1,6 +1,7 @@
 import { Input } from 'antd';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import GitHubForkRibbon from 'react-github-fork-ribbon';
 import { parseSource } from './main';
 
 // tslint:disable-next-line
@@ -53,6 +54,12 @@ class App extends React.Component {
                         <p id='output'></p>
                     </div>
                 </div>
+                <GitHubForkRibbon position='right'
+                    color='#666666'
+                    href='//github.com/lolimay/Compiling-Principle-Experiment'
+                    target='_blank' >
+                    Fork me on GitHub
+                </GitHubForkRibbon>
             </React.Fragment>
         );
     }
