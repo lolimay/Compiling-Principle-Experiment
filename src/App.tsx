@@ -4,7 +4,6 @@ import ReactDOM from 'react-dom';
 import GitHubForkRibbon from 'react-github-fork-ribbon';
 import { parseSource } from './main';
 
-// tslint:disable-next-line
 import LOGO from './assets/analyzer.svg';
 
 class App extends React.Component {
