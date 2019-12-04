@@ -117,21 +117,23 @@ export function parseSource(input: HTMLTextAreaElement, output: HTMLTextAreaElem
                                 .every(([left, right]) => left.length <= right.length); // 所有产生式的左部符号个数小于等于右部符号个数, 满足以上条件则是1型文法
     const isType2 = isType1 && productions.every(([left]) => left.length === 1 && isUpperCase(left)); // 在满足文1型文法的基础上，左部有且仅有一个非终结符，则是2型文法
     const isLeftLinear = isType2 && productions.every(([, right]) => { // 判断是否是左线性文法
-        if (right.length > 2) {
-            return false;
-        }
-
-        if (right.length === 2) {
-            return isUpperCase(right[0]) && isLowerCase(right[1]);
+        switch (right.length) {
+            case 1:
+                return true;
+            case 2:
+                return isUpperCase(right[0]) && isLowerCase(right[1]);
+            default:
+                return false;
         }
     });
     const isRightLinear = isType2 && productions.every(([, right]) => { // 判断是否是右线性文法
-        if (right.length > 2) {
-            return false;
-        }
-
-        if (right.length === 2) {
-            return isLowerCase(right[0]) && isUpperCase(right[1]);
+        switch (right.length) {
+            case 1:
+                return true;
+            case 2:
+                return isLowerCase(right[0]) && isUpperCase(right[1]);
+            default:
+                return false;
         }
     });
     const isType3 = isLeftLinear || isRightLinear; // 3型文法是左线性文法或右线性文法（混用左右则不是）
