@@ -147,7 +147,7 @@ export function parseSource(input: HTMLTextAreaElement, output: HTMLTextAreaElem
     outputs.push(`Vt: { ${ Array.from(G.Vt).join(', ') } }<br>`);
     outputs.push(`P: { ${ Array.from(GP.values()).join(', ') } }<br>`);
     outputs.push(`S: ${ G.S }<br>`);
-    if (errors.length === 0 && G.Vn.size > 0 && G.Vt.size > 0) {
+    if (errors.length === 0 && (G.Vn.size > 0 || G.Vt.size > 0)) {
         outputs.push(`<span class="red">Type-${ 3 - [isType3, isType2, isType1, isType0].findIndex((element) => element === true) }</span>`);
     }
 
