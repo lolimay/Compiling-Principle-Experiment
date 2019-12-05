@@ -78,8 +78,13 @@ export function parseSource(input: HTMLTextAreaElement, output: HTMLTextAreaElem
             continue;
         }
 
+        // 预处理产生式
         lineMatch[3].split('|').forEach(right => {
             if (right) {
+                if (right.length > 1) {
+                    right = right.replace('ε', '');
+                }
+
                 G.P.add(new Map([[lineMatch[2], right]]));
             }
         });
@@ -111,10 +116,8 @@ export function parseSource(input: HTMLTextAreaElement, output: HTMLTextAreaElem
     }
 
     const productions = [...G.P].map(map => [...map][0]);
-
     const isType0 = productions.every(([left]) => left.split('').some(symbol => isUpperCase(symbol))); // 若所有产生式满足：左部至少包含一个非终结符, 则是0型文法
-    const isType1 = isType0 && productions.filter(([left, right]) => left !== G.S || right !== 'ε') // 在满足0型文法的基础上，若所有产生式满足：除 S→ε 外
-                                .every(([left, right]) => left.length <= right.length); // 所有产生式的左部符号个数小于等于右部符号个数, 满足以上条件则是1型文法
+    const isType1 = isType0 && productions.every(([left, right]) => left.length <= right.length); // 所有产生式的左部符号个数小于等于右部符号个数, 满足以上条件则是1型文法
     const isType2 = isType1 && productions.every(([left]) => left.length === 1 && isUpperCase(left)); // 在满足文1型文法的基础上，左部有且仅有一个非终结符，则是2型文法
     const isLeftLinear = isType2 && productions.every(([, right]) => { // 判断是否是左线性文法
         switch (right.length) {
