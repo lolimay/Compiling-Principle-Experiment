@@ -9,7 +9,7 @@
     "react-github-fork-ribbon": "^0.6.0"
   },
   "scripts": {
-    "start": "parcel --host 0.0.0.0 -p 1234 watch index.html",
+    "start": "parcel --host 0.0.0.0 -p 1234 watch index.html --open",
     "build": "NODE_ENV=production parcel build index.html --no-source-maps",
     "lint": "npx tslint --project tslint.json",
     "test": "jest"
