@@ -1,0 +1,136 @@
+.input-container, #output, #backdeop, .mark-blue {
+    width: 45%;
+    font-family: Monaco, Consolas;
+}
+
+@media (max-width: 1050px) {
+    .input-container, #output, #backdeop, .mark-blue {
+        width: 95%;
+    }
+}
+
+.header {
+    margin: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    margin: 0;
+    margin-left: 10px;
+}
+
+#output {
+    height: 520px;
+    border: 1px solid rgba(217, 217, 217);
+    border-radius: 4px;
+    cursor: text;
+    padding: 5px;
+    line-height: 1.5;
+    font-weight: bold;
+}
+
+#main {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 50px 0;
+}
+
+.highlights {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+#input {
+    background-color: transparent;
+    color: black;
+    z-index: 1;
+    height: 250px;
+}
+
+#input, #backdrop {
+    line-height: 2.5;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+textarea {
+    color: transparent;
+    position: absolute;
+}
+
+.mark-blue {
+    background-color: #c1e144;
+    border-radius: 4px;
+    padding: 0;
+}
+
+#backdrop, #output {
+    overflow: auto;
+    position: absolute;
+    overflow: auto;
+    pointer-events: none;
+    transition: transform 1s;
+    padding: 4px 11px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    color: transparent;
+    height: 420px;
+}
+
+#backdrop {
+    z-index: 2;
+}
+
+#output {
+    z-index: 3;
+    color: black;
+    margin-top: 20px;
+}
+
+#backdrop::-webkit-scrollbar {
+    display: none;
+}
+
+.error {
+    color: #a50202;
+}
+
+.warning {
+    color: #ffbd2d;
+}
+
+.pink, .red {
+    color: red;
+}
+
+.blue {
+    color: rgb(0, 85, 170);
+}
+
+.bold {
+    font-weight: bold;
+}
+
+mark {
+    padding: 0;
+    background: transparent;
+}
+
+#output * {
+    font-weight: bold;
+}
+
+.wavy-error {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #a50202;
+}
+
+.wavy-warning {
+    text-decoration: underline;
+    text-decoration-style: wavy;
+    text-decoration-color: #ffbd2d;
+}
