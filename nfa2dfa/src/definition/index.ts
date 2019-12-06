@@ -1,5 +1,7 @@
-import { IGrammar } from './IGrammar';
+import { IDFA } from './IDFA';
+import { INFA } from './INFA';
 
 export {
-    IGrammar,
+    IDFA,
+    INFA
 };
